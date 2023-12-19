@@ -36,6 +36,11 @@
     gap: 2rem;
     margin-bottom: 2rem;
 }
+.form-group
+{
+    display: flex;
+    align-items: center;
+}
 
 /* Typography */
 .title
@@ -47,6 +52,28 @@
 }
 
 /* Components */
+.form-label
+{
+    font-size: 1.5rem;
+    font-family: "Roboto", Arial, sans-serif;
+    margin-right: 1.25rem;
+}
+.form-control
+{
+    width: 7rem;
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    font-family: "RobotoBold", Arial, sans-serif;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+.form-control:focus
+{
+    border-color: #3498db; 
+}
 .btn
 {
     display: inline-block;
