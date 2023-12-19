@@ -19,6 +19,7 @@ function displayResult()
 {
     const result = document.querySelector('#result');
 
+    result.style.display = "block";
     result.textContent = getRandomNumber();
 }
 

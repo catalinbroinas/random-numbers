@@ -1,6 +1,11 @@
 /* Fonts */
 @font-face 
 {
+    font-family: "RobotoBlack";
+    src: url('../fonts/Roboto/Roboto-Black.ttf');
+}
+@font-face 
+{
     font-family: "RobotoBold";
     src: url('../fonts/Roboto/Roboto-Bold.ttf');
 }
@@ -100,4 +105,12 @@
 {
     outline: none;
     box-shadow: 0px 0px 8px rgba(52, 152, 219, 0.8);
+}
+.result
+{
+    display: none;
+    padding: 2rem 0 0;
+    font-size: 2rem;
+    font-weight: "RobotoBlack", "Arial Black", sans-serif;
+    font-weight: 900;
 }
