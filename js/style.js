@@ -34,6 +34,15 @@ function verifyInterval()
 
     maxInput.setAttribute('min', parseInt(min) + 1);
 
+    if(parseInt(min) < 990)
+    {
+        maxInput.setAttribute('placeholder', parseInt(min) + 10);
+    }
+    else
+    {
+        maxInput.setAttribute('placeholder', 999);
+    }
+
     if(parseInt(min) >= parseInt(max))
     {
         applyButton.setAttribute('disabled', "");
