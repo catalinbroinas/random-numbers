@@ -1,7 +1,11 @@
+const minInput = document.querySelector('#min-number');
+const maxInput = document.querySelector('#max-number');
+const applyButton = document.querySelector('#apply-btn');
+
 function getInterval()
 {
-    const min = document.querySelector('#min-number').value;
-    const max = document.querySelector('#max-number').value;
+    const min = minInput.value;
+    const max = maxInput.value;
 
     return [min, max];
 }
@@ -23,5 +27,27 @@ function displayResult()
     result.textContent = getRandomNumber();
 }
 
-const applyButton = document.querySelector('#apply-btn');
+function verifyInterval()
+{
+    const min = minInput.value;
+    const max = maxInput.value;
+
+    maxInput.setAttribute('min', parseInt(min) + 1);
+
+    if(parseInt(min) >= parseInt(max))
+    {
+        applyButton.setAttribute('disabled', "");
+    }
+    else
+    {
+        if(applyButton.disabled)
+        {
+            applyButton.removeAttribute('disabled');
+        }
+    }
+}
+
+minInput.addEventListener('input', verifyInterval);
+maxInput.addEventListener('input', verifyInterval);
+
 applyButton.addEventListener('click', displayResult);
