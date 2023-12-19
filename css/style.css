@@ -26,6 +26,18 @@
     background-color: #fff;
     border-radius: 1rem;
     padding: 2rem 3rem;
+    text-align: center;
+}
+.interval
+{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    place-items: space-evenly center;
+    gap: 2rem;
+}
+.form-group
+{
+    margin-bottom: 1rem;
 }
 
 /* Typography */
