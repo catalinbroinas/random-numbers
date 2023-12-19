@@ -15,8 +15,12 @@ function getRandomNumber()
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const applyButton = document.querySelector('#apply-btn');
-applyButton.addEventListener('click', () => {
+function displayResult()
+{
     const result = document.querySelector('#result');
+
     result.textContent = getRandomNumber();
-});
+}
+
+const applyButton = document.querySelector('#apply-btn');
+applyButton.addEventListener('click', displayResult);
