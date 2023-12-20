@@ -114,6 +114,7 @@
 }
 .btn-clear
 {
+    display: none;
     background-color: #fff;
     color: #DC4C64;
     border-color: #DC4C64;

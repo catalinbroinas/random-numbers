@@ -1,6 +1,7 @@
 const MIN_INPUT = document.querySelector('#min-number');
 const MAX_INPUT = document.querySelector('#max-number');
 const APPLY_BUTTON = document.querySelector('#apply-btn');
+const CLEAR_BUTTON = document.querySelector('#clear-btn');
 
 function getInterval() {
     const min = MIN_INPUT.value;
@@ -83,4 +84,10 @@ MAX_INPUT.addEventListener('input', verifyInterval);
 MIN_INPUT.addEventListener('input', getFeedback);
 MAX_INPUT.addEventListener('input', getFeedback);
 
-APPLY_BUTTON.addEventListener('click', displayResult);
+APPLY_BUTTON.addEventListener('click', () => {
+    displayResult();
+    CLEAR_BUTTON.style.display = 'inline-block';
+});
+CLEAR_BUTTON.addEventListener('click', () => {
+    location.reload();
+});
