@@ -30,8 +30,9 @@
 {
     background-color: #fff;
     border-radius: 1rem;
-    padding: 2rem 3rem;
+    padding: 3rem 3rem 2rem;
     text-align: center;
+    position: relative;
 }
 .interval
 {
@@ -162,4 +163,12 @@
 {
     border-color: #3498db;
     color: #3498db;
+}
+.logo
+{
+    max-width: 5rem;
+    height: auto;
+    position: absolute;
+    top: -3rem;
+    right: 45%;
 }
