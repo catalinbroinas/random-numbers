@@ -23,7 +23,7 @@ function displayResult()
 {
     const result = document.querySelector('#result');
 
-    result.style.display = "block";
+    result.style.display = "flex";
     result.textContent = getRandomNumber();
 }
 
