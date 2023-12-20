@@ -1,10 +1,10 @@
-const minInput = document.querySelector('#min-number');
-const maxInput = document.querySelector('#max-number');
-const applyButton = document.querySelector('#apply-btn');
+const MIN_INPUT = document.querySelector('#min-number');
+const MAX_INPUT = document.querySelector('#max-number');
+const APPLY_BUTTON = document.querySelector('#apply-btn');
 
 function getInterval() {
-    const min = minInput.value;
-    const max = maxInput.value;
+    const min = MIN_INPUT.value;
+    const max = MAX_INPUT.value;
 
     return [min, max];
 }
@@ -25,34 +25,34 @@ function displayResult() {
 }
 
 function verifyInterval() {
-    const min = minInput.value;
-    const max = maxInput.value;
+    const min = MIN_INPUT.value;
+    const max = MAX_INPUT.value;
 
-    (parseInt(min) < 990) ? maxInput.setAttribute('placeholder', parseInt(min) + 10)
-        : maxInput.setAttribute('placeholder', 999);
+    (parseInt(min) < 990) ? MAX_INPUT.setAttribute('placeholder', parseInt(min) + 10)
+        : MAX_INPUT.setAttribute('placeholder', 999);
 
-    (parseInt(min) < 999) ? maxInput.setAttribute('min', parseInt(min) + 1) : maxInput.setAttribute('min', 1);
+    (parseInt(min) < 999) ? MAX_INPUT.setAttribute('min', parseInt(min) + 1) : MAX_INPUT.setAttribute('min', 1);
 
     if (!(min == '' || max == '') && !(parseInt(min) > 998 || parseInt(max) > 999)) {
         if (parseInt(max) > parseInt(min)) {
-            if (applyButton.disabled) {
-                applyButton.removeAttribute('disabled');
+            if (APPLY_BUTTON.disabled) {
+                APPLY_BUTTON.removeAttribute('disabled');
             }
         }
         else {
-            if (!applyButton.disabled) {
-                applyButton.setAttribute('disabled', "");
+            if (!APPLY_BUTTON.disabled) {
+                APPLY_BUTTON.setAttribute('disabled', "");
             }
         }
     }
     else {
-        if (!applyButton.disabled) {
-            applyButton.setAttribute('disabled', "");
+        if (!APPLY_BUTTON.disabled) {
+            APPLY_BUTTON.setAttribute('disabled', "");
         }
     }
 }
 
-minInput.addEventListener('input', verifyInterval);
-maxInput.addEventListener('input', verifyInterval);
+MIN_INPUT.addEventListener('input', verifyInterval);
+MAX_INPUT.addEventListener('input', verifyInterval);
 
-applyButton.addEventListener('click', displayResult);
+APPLY_BUTTON.addEventListener('click', displayResult);
