@@ -28,11 +28,6 @@ function verifyInterval() {
     const min = MIN_INPUT.value;
     const max = MAX_INPUT.value;
 
-    (parseInt(min) < 990) ? MAX_INPUT.setAttribute('placeholder', parseInt(min) + 10)
-        : MAX_INPUT.setAttribute('placeholder', 999);
-
-    (parseInt(min) < 999) ? MAX_INPUT.setAttribute('min', parseInt(min) + 1) : MAX_INPUT.setAttribute('min', 1);
-
     if (!(min == '' || max == '') && !(parseInt(min) > 998 || parseInt(max) > 999)) {
         if (parseInt(max) > parseInt(min)) {
             if (APPLY_BUTTON.disabled) {
@@ -52,7 +47,21 @@ function verifyInterval() {
     }
 }
 
+function getFeedback()
+{
+    const min = MIN_INPUT.value;
+    const max = MAX_INPUT.value;
+
+    (parseInt(min) < 990) ? MAX_INPUT.setAttribute('placeholder', parseInt(min) + 10)
+        : MAX_INPUT.setAttribute('placeholder', 999);
+
+    (parseInt(min) < 999) ? MAX_INPUT.setAttribute('min', parseInt(min) + 1) : MAX_INPUT.setAttribute('min', 1);
+}
+
 MIN_INPUT.addEventListener('input', verifyInterval);
 MAX_INPUT.addEventListener('input', verifyInterval);
+
+MIN_INPUT.addEventListener('input', getFeedback);
+MAX_INPUT.addEventListener('input', getFeedback);
 
 APPLY_BUTTON.addEventListener('click', displayResult);
