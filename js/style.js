@@ -58,6 +58,20 @@ function getFeedback()
     (parseInt(min) < 999) ? MAX_INPUT.setAttribute('min', parseInt(min) + 1) : MAX_INPUT.setAttribute('min', 1);
 }
 
+MIN_INPUT.addEventListener('focus', (event) => {
+    event.target.removeAttribute('placeholder');
+});
+MIN_INPUT.addEventListener('focusout', (event) => {
+    event.target.setAttribute('placeholder', 0);
+});
+MAX_INPUT.addEventListener('focus', (event) => {
+    event.target.removeAttribute('placeholder');
+});
+MAX_INPUT.addEventListener('focusout', (event) => {
+    (parseInt(MIN_INPUT.value) < 990) ? event.target.setAttribute('placeholder', parseInt(MIN_INPUT.value) + 10)
+        : event.target.setAttribute('placeholder', 999);
+});
+
 MIN_INPUT.addEventListener('input', verifyInterval);
 MAX_INPUT.addEventListener('input', verifyInterval);
 
