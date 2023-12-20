@@ -25,24 +25,29 @@ function displayResult() {
 }
 
 function verifyInterval() {
+    const alertInfo = document.querySelector('#alert-info');
     const min = MIN_INPUT.value;
     const max = MAX_INPUT.value;
+    let status = false;
 
     if (!(min == '' || max == '') && !(parseInt(min) > 998 || parseInt(max) > 999)) {
         if (parseInt(max) > parseInt(min)) {
             if (APPLY_BUTTON.disabled) {
                 APPLY_BUTTON.removeAttribute('disabled');
+                alertInfo.style.display = 'none';
             }
         }
         else {
             if (!APPLY_BUTTON.disabled) {
                 APPLY_BUTTON.setAttribute('disabled', "");
+                alertInfo.style.display = 'block';
             }
         }
     }
     else {
         if (!APPLY_BUTTON.disabled) {
             APPLY_BUTTON.setAttribute('disabled', "");
+            alertInfo.style.display = 'block';
         }
     }
 }
