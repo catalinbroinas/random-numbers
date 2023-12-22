@@ -1,7 +1,10 @@
 const MIN_INPUT = document.querySelector('#min-number');
 const MAX_INPUT = document.querySelector('#max-number');
+
 const APPLY_BUTTON = document.querySelector('#apply-btn');
 const CLEAR_BUTTON = document.querySelector('#clear-btn');
+
+const CLASSIC_CARD = document.querySelector('#classic-card');
 
 function getInterval() {
     const min = MIN_INPUT.value;
@@ -53,8 +56,7 @@ function verifyInterval() {
     }
 }
 
-function getFeedback()
-{
+function getFeedback() {
     const min = MIN_INPUT.value;
     const max = MAX_INPUT.value;
 
@@ -62,6 +64,20 @@ function getFeedback()
         : MAX_INPUT.setAttribute('placeholder', 999);
 
     (parseInt(min) < 999) ? MAX_INPUT.setAttribute('min', parseInt(min) + 1) : MAX_INPUT.setAttribute('min', 1);
+}
+
+function displayGame(option) {
+    const settingWrapper = document.querySelector('#setting');
+    const container = document.querySelector('.container');
+    const title = document.querySelector('.title');
+
+    switch (option) {
+        case 'classic':
+            settingWrapper.style.display = 'none';
+            container.style.display = 'block';
+            title.textContent = 'Classic';
+            break;
+    }
 }
 
 MIN_INPUT.addEventListener('focus', (event) => {
@@ -90,4 +106,8 @@ APPLY_BUTTON.addEventListener('click', () => {
 });
 CLEAR_BUTTON.addEventListener('click', () => {
     location.reload();
+});
+
+CLASSIC_CARD.addEventListener('click', () => {
+    displayGame('classic');
 });

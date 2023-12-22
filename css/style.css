@@ -29,9 +29,12 @@
 .container 
 {
     display: none;
+    width: clamp(30vw, 45rem, 60rem);
     background-color: #fff;
     border-radius: 1rem;
     padding: 3rem 3rem 2rem;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     position: relative;
 }
