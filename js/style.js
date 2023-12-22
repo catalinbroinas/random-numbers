@@ -5,6 +5,7 @@ const APPLY_BUTTON = document.querySelector('#apply-btn');
 const CLEAR_BUTTON = document.querySelector('#clear-btn');
 
 const CLASSIC_CARD = document.querySelector('#classic-card');
+const MANY_NUMBERS_CARD = document.querySelector('#many-numbers-card');
 
 function getInterval() {
     const min = MIN_INPUT.value;
@@ -12,20 +13,27 @@ function getInterval() {
 
     return [min, max];
 }
-
-function getRandomNumber() {
+function getRandomNumber(iteration = 1) {
     const interval = getInterval();
     const min = Math.ceil(interval[0]);
     const max = Math.floor(interval[1]);
 
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    let i = 0;
+    const arr = [];
+
+    for (i = 0; i < iteration; i++)
+    {
+        arr.push(Math.floor(Math.random() * (max - min + 1) + min));
+    }
+
+    return arr;
 }
 
-function displayResult() {
+function displayResult(iteration) {
     const result = document.querySelector('#result');
 
     result.style.display = "flex";
-    result.textContent = getRandomNumber();
+    result.textContent = getRandomNumber(iteration);
 }
 
 function verifyInterval() {
@@ -70,12 +78,23 @@ function displayGame(option) {
     const settingWrapper = document.querySelector('#setting');
     const container = document.querySelector('.container');
     const title = document.querySelector('.title');
+    const quantity = document.querySelector('.quantity-group');
+    const alertInfo = document.querySelector('#alert-info');
+    const logo = document.querySelector('.logo');
 
     switch (option) {
         case 'classic':
             settingWrapper.style.display = 'none';
             container.style.display = 'block';
             title.textContent = 'Classic';
+            break;
+        case 'many-numbers':
+            settingWrapper.style.display = 'none';
+            container.style.display = 'block';
+            quantity.style.display = 'block';
+            title.textContent = 'Many Numbers';
+            alertInfo.textContent = `Please set an integer range between 1 and 999 and a number of numbers generate.`;
+            logo.src = 'img/dice-1.png';
             break;
     }
 }
@@ -101,7 +120,9 @@ MIN_INPUT.addEventListener('input', getFeedback);
 MAX_INPUT.addEventListener('input', getFeedback);
 
 APPLY_BUTTON.addEventListener('click', () => {
-    displayResult();
+    const QUANTITY_INPUT = document.querySelector('#quantity');
+    (QUANTITY_INPUT.value > 0) ? iteration = QUANTITY_INPUT.value : iteration = 1;
+    displayResult(iteration);
     CLEAR_BUTTON.style.display = 'inline-block';
 });
 CLEAR_BUTTON.addEventListener('click', () => {
@@ -111,4 +132,7 @@ CLEAR_BUTTON.addEventListener('click', () => {
 
 CLASSIC_CARD.addEventListener('click', () => {
     displayGame('classic');
+});
+MANY_NUMBERS_CARD.addEventListener('click', () => {
+    displayGame('many-numbers');
 });

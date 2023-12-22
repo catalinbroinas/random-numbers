@@ -64,6 +64,10 @@
     justify-content: center;
     gap: 2rem;
 }
+.quantity-group
+{
+    display: none;
+}
 
 /* Typography */
 .title
