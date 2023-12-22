@@ -105,7 +105,8 @@ APPLY_BUTTON.addEventListener('click', () => {
     CLEAR_BUTTON.style.display = 'inline-block';
 });
 CLEAR_BUTTON.addEventListener('click', () => {
-    location.reload();
+    const result = document.querySelector('#result');
+    result.style.display = 'none';
 });
 
 CLASSIC_CARD.addEventListener('click', () => {
