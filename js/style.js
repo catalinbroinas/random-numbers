@@ -13,27 +13,39 @@ function getInterval() {
 
     return [min, max];
 }
+
 function getRandomNumber(iteration = 1) {
     const interval = getInterval();
     const min = Math.ceil(interval[0]);
     const max = Math.floor(interval[1]);
 
-    let i = 0;
     const arr = [];
 
-    for (i = 0; i < iteration; i++)
-    {
+    for (let i = 0; i < iteration; i++) {
         arr.push(Math.floor(Math.random() * (max - min + 1) + min));
     }
 
     return arr;
 }
 
-function displayResult(iteration) {
+function displayResult(type, iteration) {
     const result = document.querySelector('#result');
 
     result.style.display = "flex";
-    result.textContent = getRandomNumber(iteration);
+
+    switch(type)
+    {
+        case 'classic':
+            result.classList.add('result-number');
+            result.textContent = getRandomNumber(iteration);
+            break;
+        case 'many-numbers':
+            const number = document.createElement('span');
+            number.classList.add('result-number');
+            number.textContent = getRandomNumber(iteration);
+            result.appendChild(number);
+            break;
+    }
 }
 
 function verifyInterval() {
@@ -91,7 +103,6 @@ function displayGame(option) {
         case 'many-numbers':
             settingWrapper.style.display = 'none';
             container.style.display = 'block';
-            quantity.style.display = 'block';
             title.textContent = 'Many Numbers';
             alertInfo.textContent = `Please set an integer range between 1 and 999 and a number of numbers generate.`;
             logo.src = 'img/dice-1.png';
@@ -120,19 +131,22 @@ MIN_INPUT.addEventListener('input', getFeedback);
 MAX_INPUT.addEventListener('input', getFeedback);
 
 APPLY_BUTTON.addEventListener('click', () => {
-    const QUANTITY_INPUT = document.querySelector('#quantity');
-    (QUANTITY_INPUT.value > 0) ? iteration = QUANTITY_INPUT.value : iteration = 1;
-    displayResult(iteration);
+    displayResult(GAME_TYPE, 1);
     CLEAR_BUTTON.style.display = 'inline-block';
 });
 CLEAR_BUTTON.addEventListener('click', () => {
     const result = document.querySelector('#result');
     result.style.display = 'none';
+    while (result.firstChild) {
+        result.removeChild(result.firstChild);
+    }
 });
 
 CLASSIC_CARD.addEventListener('click', () => {
     displayGame('classic');
+    GAME_TYPE = 'classic';
 });
 MANY_NUMBERS_CARD.addEventListener('click', () => {
     displayGame('many-numbers');
+    GAME_TYPE = 'many-numbers';
 });

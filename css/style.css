@@ -64,10 +64,6 @@
     justify-content: center;
     gap: 2rem;
 }
-.quantity-group
-{
-    display: none;
-}
 
 /* Typography */
 .title
@@ -162,15 +158,20 @@
 }
 .result
 {
-    max-width: 5rem;
     display: none;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 2rem;
+    gap: 1.5rem;
+}
+.result-number
+{
+    max-width: 5rem;
     background-color: white;
     color: #3498db;
-    margin-top: 2rem;
     padding: 1rem 2rem;
     font-size: 2rem;
     border-radius: 1.5rem;
