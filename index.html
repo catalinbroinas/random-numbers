@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,48 +12,85 @@
     <!-- Custom Style -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    
+
     <!-- Page Container -->
     <div class="container-fluid">
+
+        <!-- Game Options -->
+        <section id="setting" class="setting">
+            <!-- Card -->
+            <div class="card" id="classic-card">
+                <h3 class="sub-title">Classic</h3>
+                <p class="text">Generate a single number</p>
+            </div>
+            <!-- Card -->
+            <!-- Card -->
+            <div class="card" id="many-numbers-card">
+                <h3 class="sub-title">Many Numbers</h3>
+                <p class="text">Generate between 1 and 10 numbers</p>
+            </div>
+            <!-- Card -->
+            <!-- Card -->
+            <div class="card" id="you-computer-card">
+                <h3 class="sub-title">You VS Computer</h3>
+                <p class="text">A game with many rounds vs computer</p>
+            </div>
+            <!-- Card -->
+            <!-- Card -->
+            <div class="card" id="many-players-card">
+                <h3 class="sub-title">Multiplayer</h3>
+                <p class="text">Many players, many numbers generate</p>
+            </div>
+            <!-- Card -->
+        </section>
+        <!-- Game Options -->
+
         <!-- Page Content -->
         <div class="container">
             <!-- Logo -->
             <img src="img/dice.png" alt="Dice" class="logo">
-            
+
             <!-- Title -->
             <h1 class="title">Random Numbers</h1>
 
-            <!-- Info -->
-            <div class="alert alert-info" id="alert-info">Please set an integer range between 1 and 999. Ex: min 1 and max 100.</div>
-
-            <!-- Interval -->
-            <div class="interval">
-                <div class="form-group">
-                    <label for="min-number" class="form-label">Set minimum</label>
-                    <input type="number" name="min-number" id="min-number" class="form-control" min="0" max="998" placeholder="0" required> 
+            <!-- Classic Game -->
+            <section id="classic-content" class="classic">
+                <!-- Info -->
+                <div class="alert alert-info" id="alert-info">Please set an integer range between 1 and 999. Ex: min 1
+                    and max 100.</div>
+                <!-- Interval -->
+                <div class="interval">
+                    <div class="form-group">
+                        <label for="min-number" class="form-label">Set minimum</label>
+                        <input type="number" name="min-number" id="min-number" class="form-control" min="0" max="998"
+                            placeholder="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="max-number" class="form-label">Set maximum</label>
+                        <input type="number" name="max-number" id="max-number" class="form-control" min="1" max="999"
+                            placeholder="10" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="max-number" class="form-label">Set maximum</label>
-                    <input type="number" name="max-number" id="max-number" class="form-control" min="1" max="999" placeholder="10" required>
+                <!-- Interval -->
+                <!-- Apply Button -->
+                <div class="btn-group">
+                    <button class="btn" id="apply-btn" type="button" disabled>Apply</button>
+                    <button class="btn btn-clear" id="clear-btn" type="button">Clear</button>
                 </div>
-            </div>
-             <!-- Interval -->
 
-             <!-- Apply Button -->
-             <div class="btn-group">
-                 <button class="btn" id="apply-btn" type="button" disabled>Apply</button>
-                 <button class="btn btn-clear" id="clear-btn" type="button">Clear</button>
-             </div>
-
-             <!-- Result -->
-             <div class="result" id="result"></div>
+                <!-- Result -->
+                <div class="result" id="result"></div>
+            </section>
+            <!-- Classic Game -->
 
         </div>
-         <!-- Page Content -->
+        <!-- Page Content -->
     </div>
     <!-- Page Container -->
 
     <script src="js/style.js"></script>
 </body>
+
 </html>
