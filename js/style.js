@@ -131,7 +131,10 @@ MIN_INPUT.addEventListener('input', getFeedback);
 MAX_INPUT.addEventListener('input', getFeedback);
 
 APPLY_BUTTON.addEventListener('click', () => {
-    displayResult(GAME_TYPE, 1);
+    
+    setTimeout((type, interaction) => {
+        displayResult(type, interaction);
+    }, 500, GAME_TYPE, 1);
     CLEAR_BUTTON.style.display = 'inline-block';
 });
 CLEAR_BUTTON.addEventListener('click', (event) => {
