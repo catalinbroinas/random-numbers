@@ -134,12 +134,15 @@ APPLY_BUTTON.addEventListener('click', () => {
     displayResult(GAME_TYPE, 1);
     CLEAR_BUTTON.style.display = 'inline-block';
 });
-CLEAR_BUTTON.addEventListener('click', () => {
+CLEAR_BUTTON.addEventListener('click', (event) => {
     const result = document.querySelector('#result');
     result.style.display = 'none';
     while (result.firstChild) {
         result.removeChild(result.firstChild);
     }
+    setTimeout((event) => {
+        event.target.style.display = 'none';
+    }, 500, event);
 });
 
 CLASSIC_CARD.addEventListener('click', () => {
