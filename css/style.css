@@ -139,7 +139,8 @@
 }
 .btn-clear
 {
-    display: none;
+    display: inline-block;
+    visibility: hidden;
     background-color: #fff;
     color: #DC4C64;
     border-color: #DC4C64;

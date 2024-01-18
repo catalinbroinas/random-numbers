@@ -131,11 +131,12 @@ MIN_INPUT.addEventListener('input', getFeedback);
 MAX_INPUT.addEventListener('input', getFeedback);
 
 APPLY_BUTTON.addEventListener('click', () => {
-    
     setTimeout((type, interaction) => {
         displayResult(type, interaction);
     }, 500, GAME_TYPE, 1);
-    CLEAR_BUTTON.style.display = 'inline-block';
+    setTimeout(() => {
+        CLEAR_BUTTON.style.visibility = 'visible';
+    }, 1000);
 });
 CLEAR_BUTTON.addEventListener('click', (event) => {
     const result = document.querySelector('#result');
@@ -144,7 +145,7 @@ CLEAR_BUTTON.addEventListener('click', (event) => {
         result.removeChild(result.firstChild);
     }
     setTimeout((event) => {
-        event.target.style.display = 'none';
+        event.target.style.visibility = 'hidden';
     }, 500, event);
 });
 
