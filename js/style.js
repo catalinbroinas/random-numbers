@@ -3,6 +3,7 @@ const MAX_INPUT = document.querySelector('#max-number');
 
 const APPLY_BUTTON = document.querySelector('#apply-btn');
 const CLEAR_BUTTON = document.querySelector('#clear-btn');
+const BACK_BUTTON = document.querySelector('#back-btn');
 
 const CLASSIC_CARD = document.querySelector('#classic-card');
 const MANY_NUMBERS_CARD = document.querySelector('#many-numbers-card');
@@ -141,6 +142,11 @@ CLEAR_BUTTON.addEventListener('click', (event) => {
     setTimeout((event) => {
         event.target.style.visibility = 'hidden';
     }, 500, event);
+});
+BACK_BUTTON.addEventListener('click', () => {
+    setTimeout(() => {
+        window.location.reload();
+    }, 500);
 });
 
 CLASSIC_CARD.addEventListener('click', () => {
