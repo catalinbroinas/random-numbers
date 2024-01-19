@@ -14,17 +14,13 @@ function getInterval() {
     return [min, max];
 }
 
-function getRandomNumber(iteration = 1) {
+function getRandomNumber() {
     const interval = getInterval();
     const min = Math.ceil(interval[0]);
     const max = Math.floor(interval[1]);
-
     const arr = [];
 
-    for (let i = 0; i < iteration; i++) {
-        arr.push(Math.floor(Math.random() * (max - min + 1) + min));
-    }
-
+    arr.push(Math.floor(Math.random() * (max - min + 1) + min));
     return arr;
 }
 
@@ -37,12 +33,12 @@ function displayResult(type, iteration) {
     {
         case 'classic':
             result.classList.add('result-number');
-            result.textContent = getRandomNumber(iteration);
+            result.textContent = getRandomNumber();
             break;
         case 'many-numbers':
             const number = document.createElement('span');
             number.classList.add('result-number');
-            number.textContent = getRandomNumber(iteration);
+            number.textContent = getRandomNumber();
             result.appendChild(number);
             break;
     }
@@ -91,7 +87,6 @@ function displayGame(option) {
     const container = document.querySelector('.container');
     const title = document.querySelector('.title');
     const quantity = document.querySelector('.quantity-group');
-    const alertInfo = document.querySelector('#alert-info');
     const logo = document.querySelector('.logo');
 
     switch (option) {
@@ -104,7 +99,6 @@ function displayGame(option) {
             settingWrapper.style.display = 'none';
             container.style.display = 'block';
             title.textContent = 'Many Numbers';
-            alertInfo.textContent = `Please set an integer range between 1 and 999 and a number of numbers generate.`;
             logo.src = 'img/dice-1.png';
             break;
     }
