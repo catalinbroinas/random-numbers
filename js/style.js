@@ -150,10 +150,14 @@ BACK_BUTTON.addEventListener('click', () => {
 });
 
 CLASSIC_CARD.addEventListener('click', () => {
-    displayGame('classic');
-    GAME_TYPE = 'classic';
+    setTimeout(() => {
+        displayGame('classic');
+        GAME_TYPE = 'classic';
+    }, 500);
 });
 MANY_NUMBERS_CARD.addEventListener('click', () => {
-    displayGame('many-numbers');
-    GAME_TYPE = 'many-numbers';
+    setTimeout(() => {
+        displayGame('many-numbers');
+        GAME_TYPE = 'many-numbers';
+    }, 500);
 });

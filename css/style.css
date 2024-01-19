@@ -150,6 +150,10 @@
     background-color: #DC4C64;
     color: #fff;
 }
+#back-btn 
+{
+    position: absolute;
+}
 .btn-back 
 {
     position: absolute;
